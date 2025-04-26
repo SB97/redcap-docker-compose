@@ -10,8 +10,8 @@ services:
     depends_on:
       - db
     ports:
-      - 127.0.0.1:${WEB_PORT}:80
-      - 127.0.0.1:${WEB_SSL_PORT}:443
+      - ${WEB_PORT}:80
+      - ${WEB_SSL_PORT}:443
     # THIS IS NOT NEEDED (at least on a Mac -- but leaving it here because someone added it)
     # extra_hosts:
     #  - "host.docker.internal:host-gateway"
@@ -52,7 +52,7 @@ services:
     # You can likely comment out this ports section unless you want to directly 
     #connect to your database from your laptop
     ports:
-      - 127.0.0.1:${MYSQL_PORT}:3306
+      - ${MYSQL_PORT}:3306
     networks:
       - redcap_network
 
@@ -109,7 +109,7 @@ services:
 # #    volumes:
 # #      - ${PHPMYADMIN_PHP_OVERRIDES}:/usr/local/etc/php/conf.d/uploads.ini
 #     ports:
-#       - 127.0.0.1:${PHPMYADMIN_PORT}:80
+#       - ${PHPMYADMIN_PORT}:80
 #     networks:
 #       - redcap_network
 
